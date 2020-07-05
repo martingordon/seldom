@@ -1,0 +1,8 @@
+<ul class="nav-section">
+	{{#foreach navigation}}
+	<li>
+		<a class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"
+			href="{{url absolute="true"}}">{{label}}</a>
+	</li>
+	{{/foreach}}
+</ul>

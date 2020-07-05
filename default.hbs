@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{! Styles and Fonts }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/global.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+
+<body class="{{body_class}}">
+    <header class="main-header">
+        <div class="main-header-content">
+            <h1 class="blog-title"><a href="{{@site.url}}">{{@site.title}}</a></h1>
+            <h2 class="blog-description">by {{@site.description}}</h2>
+        </div>
+    </header>
+
+    <div class="page-content">
+        <nav class="nav">
+            {{navigation}}
+            {{#if @site.secondary_navigation}}
+            {{navigation type="secondary"}}
+            {{/if}}
+        </nav>
+
+        {{! Everything else gets inserted here }}
+        {{{body}}}
+
+    </div>
+
+    <footer class="site-footer">
+        <section class="copyright">&copy; {{date format="YYYY"}} Martin Gordon</section>
+    </footer>
+    {{ghost_foot}}
+</body>
+
+</html>

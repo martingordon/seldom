@@ -1,0 +1,38 @@
+{{!-- template: post-archive | 2020-06-21--}}
+
+{{!< default}}
+
+{{#post}}
+
+<main id="site-main" class="site-main outer">
+  <section class="section">
+    <div class="container">
+      <h2 class="post-title">
+        {{title}}
+        </h1>
+    </div>
+  </section>
+
+  <article class="single-article">
+    <div class="post">
+      <section>
+        <div class="post-content">
+          {{#get "posts"}}
+          {{t "I’ve written {total} posts:" total=pagination.total}}
+          {{/get}}
+          <table class="post-archive">
+            {{#get "posts" limit="all" order="published_at desc"}}
+            {{#foreach posts}}
+            <tr>
+              <th><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time></th>
+              <td><a href="{{url}}">{{title}}</a></td>
+            </tr>
+            {{/foreach}}
+            {{/get}}
+          </table>
+        </div>
+      </section>
+    </div>
+  </article>
+
+  {{/post}}
